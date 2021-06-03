@@ -2,13 +2,30 @@
 
 ## Api-track-auth
 This is a REST API for managing database resources, in this case there are 3 tables in the database - this project has Users, Activities(their actions,  like sports trainings) and Trainings (monitored parameters, such as date, duration, distance, pulse, rate, etc.) ).
-To create, view and edit activities and their tracked parameters of this User, "password_digest" and "cookies" are used.
+To create, view and edit activities and their tracked parameters of this User, "password_digest" and "auth_token" are used.
 This rails api deployed on Heroku and assign to work with the react mobile app, where will bee the user interface.
+
+![POST User new](./POST-new-user.png)
+- 
+- `curl --location --request POST 'http://localhost:3000/signup' \
+--data-raw '{
+    "name": "Oksana-auth",
+    "email": "oksanaauth@mail.com",
+    "password": "111111"
+}'`
+
+![POST User log in](./POST-user-log-in.png)
+- 
+- `curl --location --request POST 'localhost:3000/auth/login?email=oksanaauth@mail.com&password=111111' \
+--data-raw '{
+    "email": "oksanaauth@mail.com",
+    "password": "111111"
+}'`
 
 ### 'api-track-auth' API documentation
 I have added a new documentary for the API as the nice-to-have feature for my Final Capstone project.
 This documentation is available here:  
-[Publish Documentation / POSTMAN]()
+[Publish Documentation / POSTMAN](https://documenter.getpostman.com/view/13821409/TzY4eEN6)
 
 ### Live Demo
 
@@ -82,3 +99,7 @@ You can access all the design info - color, typography, layouts - at this link:
 
 ### 📝 License
 This project is [MIT](https://github.com/Laguna1/api-track-auth/LICENSE) licensed.
+
+
+http :3000/auth/login \
+> Authorization:'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MjI4MTg0MjF9.MlwVCekTkBa0nqMPK6ZuTarjsX0F4q5q_GeRTLbKcss'
